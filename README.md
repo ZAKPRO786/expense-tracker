@@ -122,6 +122,7 @@ Tradeoff:
 * Less interactive than a modern frontend framework such as React.
 
 ---
+<<<<<<< HEAD
 ## Application Architecture
 
 The application follows a traditional Flask MVC-style workflow:
@@ -136,6 +137,9 @@ The application follows a traditional Flask MVC-style workflow:
 8. Browser displays updated information.
 
 ![Expense Tracker Architecture](docs/architecture.png)
+=======
+
+>>>>>>> ac0ce376567e9737463e5b2c1eaaf4ae067cfc14
 ## What Is Done
 
 ### Expense Management
