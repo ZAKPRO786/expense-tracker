@@ -1,91 +1,211 @@
 # Expense Tracker
 
-## Overview
+A simple web-based Expense Tracker built with Flask and SQLite. The application allows users to add, edit, delete, search, and filter expenses while viewing a monthly spending summary.
 
-A simple Expense Tracker web application built with Flask and SQLite. The application allows users to create, view, update, delete, and filter expenses while also providing a monthly spending summary grouped by category.
+---
 
-## Features
+## How to Run
 
-* Add new expenses
-* Edit existing expenses
-* Delete expenses
-* Filter by category
-* Filter by date range
-* Search expenses by title
-* Monthly spending summary
-* Category-wise expense breakdown
-* SQLite database persistence
+### 1. Clone the Repository
 
-## Tech Stack
+```bash
+git clone https://github.com/ZAKPRO786/expense-tracker.git
+cd expense-tracker
+```
+
+### 2. Create a Virtual Environment
+
+```bash
+python -m venv venv
+```
+
+### 3. Activate the Virtual Environment
+
+Windows:
+
+```bash
+venv\Scripts\activate
+```
+
+Linux/macOS:
+
+```bash
+source venv/bin/activate
+```
+
+### 4. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 5. Run the Application
+
+```bash
+python app.py
+```
+
+### 6. Open in Browser
+
+```text
+http://127.0.0.1:5000
+```
+
+---
+
+## Stack Choices
+
+### Backend
 
 * Flask
+* SQLAlchemy ORM
+
+### Database
+
 * SQLite
-* SQLAlchemy
+
+### Frontend
+
 * HTML
 * CSS
 * JavaScript
 
-## Project Structure
+---
 
-expense-tracker/
+## Why These Choices?
 
-* app.py
-* templates/
-* static/
-* requirements.txt
+### Flask
 
-## Installation
+Flask is lightweight, easy to set up, and well suited for small CRUD applications. It allows rapid development while keeping the codebase simple.
 
-1. Create virtual environment
+### SQLite
 
-python -m venv venv
+SQLite was chosen because it requires no separate database server, is easy to configure, and is sufficient for the scope of this assignment.
 
-2. Activate environment
+### SQLAlchemy
 
-Windows:
+SQLAlchemy provides a clean ORM layer and avoids writing raw SQL for common database operations.
 
-venv\Scripts\activate
+---
 
-3. Install dependencies
+## Tradeoffs
 
-pip install -r requirements.txt
+### SQLite vs PostgreSQL
 
-4. Run application
+Chosen:
 
-python app.py
+* SQLite
 
-5. Open browser
+Advantages:
 
-http://127.0.0.1:5000
+* Zero configuration
+* Easy local setup
+* Fast development
 
-## Database
+Tradeoff:
 
-The application uses SQLite with SQLAlchemy ORM.
+* Not ideal for high-concurrency production systems.
 
-Database file:
+### Server-Side Rendering
 
-instance/expenses.db
+Chosen:
+
+* Flask Templates (Jinja2)
+
+Advantages:
+
+* Simpler architecture
+* Faster implementation
+
+Tradeoff:
+
+* Less interactive than a modern frontend framework such as React.
+
+---
+
+## What Is Done
+
+### Expense Management
+
+* Add expenses
+* Edit expenses
+* Delete expenses
+* View expenses
+
+### Filtering
+
+* Filter by category
+* Filter by date range
+* Search by title
+
+### Reporting
+
+* Monthly total expense summary
+* Category-wise spending summary
+
+### Data Persistence
+
+* SQLite database integration
+* Data retained across application restarts
+
+### Basic Validation
+
+* Empty title validation
+* Positive amount validation
+* Empty state handling
+
+---
+
+## What Was Skipped (and Why)
+
+### User Authentication
+
+Not implemented because the assignment focused on expense tracking functionality rather than user management.
+
+### Charts and Visual Analytics
+
+Summary reporting is available, but charts were omitted to prioritize core CRUD functionality within the assignment timeframe.
+
+### Export Features
+
+CSV/PDF export functionality was not implemented because it was outside the requested requirements.
+
+### REST API
+
+The application uses server-rendered pages rather than exposing API endpoints since the requirements did not call for API support.
+
+---
+
+## Known Rough Edges
+
+* SQLite is intended for local development and small-scale usage.
+* Date validation relies on browser-provided date inputs.
+* No authentication or multi-user support.
+* UI is intentionally simple and focuses on functionality over design.
+* No pagination for very large expense datasets.
+
+---
 
 ## Design Decisions
 
-* SQLite was chosen for simplicity and quick setup.
-* SQLAlchemy provides ORM abstraction.
-* Server-side filtering keeps logic centralized.
-* Monthly summaries are computed directly from database queries.
+The project was intentionally kept simple and focused on the requested functionality. Priority was given to:
 
-## Edge Cases Handled
+1. Correct CRUD operations
+2. Data persistence
+3. Filtering and reporting
+4. Clear project structure
+5. Easy setup and execution
 
-* Empty titles
-* Negative amounts
-* No expenses available
-* Empty filter results
-* Invalid date ranges
+The goal was to deliver a working end-to-end application that is easy to understand, run, and extend.
+
+---
 
 ## Future Improvements
 
-* User authentication
-* Expense categories management
-* Export to CSV/PDF
-* Charts and analytics dashboard
 * PostgreSQL support
-* REST API support
+* User authentication
+* Dashboard charts
+* CSV/PDF export
+* Pagination
+* REST API endpoints
+* Improved UI/UX
