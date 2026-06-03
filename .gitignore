@@ -1,0 +1,48 @@
+# Virtual Environment
+venv/
+.env
+.venv/
+
+# Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Flask Instance Folder
+instance/
+
+# SQLite Databases
+*.db
+*.sqlite3
+
+# Environment Variables
+.env
+.env.*
+
+# IDEs
+.vscode/
+.idea/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Build Files
+build/
+dist/
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Temporary Files
+*.tmp
+*.temp

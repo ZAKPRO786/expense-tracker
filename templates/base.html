@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fintrack — Expense Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="app-shell">
+
+  <!-- ── SIDEBAR ── -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-icon">💸</div>
+      <div>
+        <div class="logo-text">Fintrack</div>
+        <div class="logo-sub">Expense Tracker</div>
+      </div>
+    </div>
+
+    <span class="nav-label">Overview</span>
+    <a href="/" class="nav-link active">
+      <span class="icon">📊</span> Dashboard
+    </a>
+
+    <span class="nav-label">Manage</span>
+    <a href="#add-section" class="nav-link">
+      <span class="icon">➕</span> Add Expense
+    </a>
+    <a href="#expenses-section" class="nav-link">
+      <span class="icon">📋</span> All Expenses
+      {% if expenses is defined %}
+      <span class="badge">{{ expenses|length }}</span>
+      {% endif %}
+    </a>
+
+    <span class="nav-label">Categories</span>
+    <a href="#" class="nav-link"><span class="icon">🍔</span> Food</a>
+    <a href="#" class="nav-link"><span class="icon">🚗</span> Transport</a>
+    <a href="#" class="nav-link"><span class="icon">🛍</span> Shopping</a>
+    <a href="#" class="nav-link"><span class="icon">📄</span> Bills</a>
+    <a href="#" class="nav-link"><span class="icon">🎭</span> Entertainment</a>
+
+    <div class="sidebar-footer">
+      Fintrack v1.0 &nbsp;·&nbsp; All data local
+    </div>
+  </aside>
+
+  <!-- ── MAIN ── -->
+  <main class="main">
+    {% block content %}{% endblock %}
+  </main>
+
+</div>
+
+<!-- TOAST CONTAINER -->
+<div id="toast-container"></div>
+
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

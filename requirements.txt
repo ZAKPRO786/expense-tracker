@@ -1,0 +1,9 @@
+flask>=3.0,<4.0
+flask-sqlalchemy>=3.1,<4.0
+flask-wtf>=1.2,<2.0
+flask-limiter>=3.5,<4.0
+wtforms>=3.1,<4.0
+# Production server (never use Flask's built-in server in prod)
+gunicorn>=21.0,<22.0
+# Optional: swap SQLite for Postgres in production
+# psycopg2-binary>=2.9  install these also in my env give comand prompt 
